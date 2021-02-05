@@ -19,7 +19,7 @@ package org.jitsi.meet.sdk;
 import java.util.Map;
 
 /**
- * Interface for listening to events coming from Jitsi Meet.
+ * Interface for listening to events coming from Cloops Meet.
  */
 @Deprecated
 public interface JitsiMeetViewListener {

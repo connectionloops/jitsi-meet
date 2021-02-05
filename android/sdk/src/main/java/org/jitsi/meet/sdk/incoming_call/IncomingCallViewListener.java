@@ -19,7 +19,7 @@ package org.jitsi.meet.sdk.incoming_call;
 import java.util.Map;
 
 /**
- * Interface for listening to events coming from Jitsi Meet, related to
+ * Interface for listening to events coming from Cloops Meet, related to
  * {@link IncomingCallView}.
  */
 public interface IncomingCallViewListener {

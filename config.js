@@ -6,26 +6,26 @@ var config = {
 
     hosts: {
         // XMPP domain.
-        domain: 'jitsi-meet.example.com',
+        domain: 'meet.cloops.in',
 
         // When using authentication, domain for guest users.
         // anonymousdomain: 'guest.example.com',
 
         // Domain for authenticated users. Defaults to <domain>.
-        // authdomain: 'jitsi-meet.example.com',
+        // authdomain: 'meet.cloops.in',
 
         // Focus component domain. Defaults to focus.<domain>.
-        // focus: 'focus.jitsi-meet.example.com',
+        // focus: 'focus.meet.cloops.in',
 
         // XMPP MUC domain. FIXME: use XEP-0030 to discover it.
-        muc: 'conference.jitsi-meet.example.com'
+        muc: 'conference.<!--# echo var="subdomain" default="" -->meet.cloops.in'
     },
 
     // BOSH URL. FIXME: use XEP-0156 to discover it.
-    bosh: '//jitsi-meet.example.com/http-bind',
+    bosh: '//meet.cloops.in/http-bind',
 
     // Websocket URL
-    // websocket: 'wss://jitsi-meet.example.com/xmpp-websocket',
+    // websocket: 'wss://meet.cloops.in/xmpp-websocket',
 
     // The name of client node advertised in XEP-0115 'c' stanza
     clientNode: 'http://jitsi.org/jitsimeet',
@@ -33,7 +33,7 @@ var config = {
     // The real JID of focus participant - can be overridden here
     // Do not change username - FIXME: Make focus username configurable
     // https://github.com/jitsi/jitsi-meet/issues/7376
-    // focusUserJid: 'focus@auth.jitsi-meet.example.com',
+    // focusUserJid: 'focus@auth.meet.cloops.in',
 
 
     // Testing / experimental features.
@@ -83,7 +83,7 @@ var config = {
     // Audio
 
     // Disable measuring of audio levels.
-    // disableAudioLevels: false,
+    disableAudioLevels: true,
     // audioLevelsInterval: 200,
 
     // Enabling this will run the lib-jitsi-meet no audio detection module which
@@ -104,18 +104,18 @@ var config = {
 
     // Start the conference in audio only mode (no video is being received nor
     // sent).
-    // startAudioOnly: false,
+    startAudioOnly: true,
 
     // Every participant after the Nth will start audio muted.
-    // startAudioMuted: 10,
+    startAudioMuted: 5,
 
     // Start calls with audio muted. Unlike the option above, this one is only
     // applied locally. FIXME: having these 2 options is confusing.
-    // startWithAudioMuted: false,
+    startWithAudioMuted: true,
 
     // Enabling it (with #params) will disable local audio output of remote
     // participants and to enable it back a reload is needed.
-    // startSilent: false
+    startSilent: true,
 
     // Sets the preferred target bitrate for the Opus audio codec by setting its
     // 'maxaveragebitrate' parameter. Currently not available in p2p mode.
@@ -155,14 +155,14 @@ var config = {
     // Enable / disable layer suspension.  If enabled, endpoints whose HD
     // layers are not in use will be suspended (no longer sent) until they
     // are requested again.
-    // enableLayerSuspension: false,
+    enableLayerSuspension: true,
 
     // Every participant after the Nth will start video muted.
-    // startVideoMuted: 10,
+    startVideoMuted: 5,
 
     // Start calls with video muted. Unlike the option above, this one is only
     // applied locally. FIXME: having these 2 options is confusing.
-    // startWithVideoMuted: false,
+    startWithVideoMuted: true,
 
     // If set to true, prefer to use the H.264 video codec (if supported).
     // Note that it's not recommended to do this because simulcast is not
@@ -195,9 +195,9 @@ var config = {
     //     appKey: '<APP_KEY>' // Specify your app key here.
     //     // A URL to redirect the user to, after authenticating
     //     // by default uses:
-    //     // 'https://jitsi-meet.example.com/static/oauth.html'
+    //     // 'https://meet.cloops.in/static/oauth.html'
     //     redirectURI:
-    //          'https://jitsi-meet.example.com/subfolder/static/oauth.html'
+    //          'https://meet.cloops.in/subfolder/static/oauth.html'
     // },
     // When integrations like dropbox are enabled only that will be shown,
     // by enabling fileRecordingsServiceEnabled, we show both the integrations
@@ -326,29 +326,19 @@ var config = {
     // UI
     //
 
-    // Disables responsive tiles.
-    // disableResponsiveTiles: false,
-
     // Hides lobby button
     // hideLobbyButton: false,
 
     // Require users to always specify a display name.
-    // requireDisplayName: true,
+    requireDisplayName: true,
 
     // Whether to use a welcome page or not. In case it's false a random room
     // will be joined when no room is specified.
-    enableWelcomePage: true,
-
-    // Disable app shortcuts that are registered upon joining a conference
-    // disableShortcuts: false,
-
-    // Disable initial browser getUserMedia requests.
-    // This is useful for scenarios where users might want to start a conference for screensharing only
-    // disableInitialGUM: false,
+    enableWelcomePage: false,
 
     // Enabling the close page will ignore the welcome page redirection when
     // a call is hangup.
-    // enableClosePage: false,
+    enableClosePage: true,
 
     // Disable hiding of remote thumbnails when in a 1-on-1 conference call.
     // disable1On1Mode: false,
@@ -391,7 +381,7 @@ var config = {
 
     // Whether to automatically copy invitation URL after creating a room.
     // Document should be focused for this option to work
-    // enableAutomaticUrlCopy: false,
+    enableAutomaticUrlCopy: true,
 
     // Base URL for a Gravatar-compatible service. Defaults to libravatar.
     // gravatarBaseURL: 'https://seccdn.libravatar.org/avatar/';
@@ -443,7 +433,7 @@ var config = {
         // The STUN servers that will be used in the peer to peer connections
         stunServers: [
 
-            // { urls: 'stun:jitsi-meet.example.com:3478' },
+            // { urls: 'stun:meet.cloops.in:3478' },
             { urls: 'stun:meet-jit-si-turnrelay.jitsi.net:443' }
         ]
 
@@ -600,10 +590,10 @@ var config = {
     // },
 
     // Options related to the remote participant menu.
-    // remoteVideoMenu: {
-    //     // If set to true the 'Kick out' button will be disabled.
-    //     disableKick: true
-    // },
+     remoteVideoMenu: {
+         // If set to true the 'Kick out' button will be disabled.
+         disableKick: true
+     },
 
     // If set to true all muting operations of remote participants will be disabled.
     // disableRemoteMute: true,
@@ -631,10 +621,10 @@ var config = {
     // The URL of the moderated rooms microservice, if available. If it
     // is present, a link to the service will be rendered on the welcome page,
     // otherwise the app doesn't render it.
-    // moderatedRoomServiceUrl: 'https://moderated.jitsi-meet.example.com',
+    // moderatedRoomServiceUrl: 'https://moderated.meet.cloops.in',
 
     // If true, tile view will not be enabled automatically when the participants count threshold is reached.
-    // disableTileView: true,
+     disableTileView: true,
 
     // Hides the conference subject
     // hideConferenceSubject: true
@@ -675,7 +665,7 @@ var config = {
 
     /**
      * This property can be used to alter the generated meeting invite links (in combination with a branding domain
-     * which is retrieved internally by jitsi meet) (e.g. https://meet.jit.si/someMeeting
+     * which is retrieved internally by Cloops Meet) (e.g. https://meet.jit.si/someMeeting
      * can become https://brandedDomain/roomAlias)
      */
     // brandingRoomAlias: null,
@@ -699,69 +689,8 @@ var config = {
      forceTurnRelay
      hiddenDomain
      ignoreStartMuted
-     websocketKeepAlive
-     websocketKeepAliveUrl
      */
 
-    /**
-        Use this array to configure which notifications will be shown to the user
-        The items correspond to the title or description key of that notification
-        Some of these notifications also depend on some other internal logic to be displayed or not,
-        so adding them here will not ensure they will always be displayed
-
-        A falsy value for this prop will result in having all notifications enabled (e.g null, undefined, false)
-    */
-    // notifications: [
-    //     'connection.CONNFAIL', // shown when the connection fails,
-    //     'dialog.cameraNotSendingData', // shown when there's no feed from user's camera
-    //     'dialog.kickTitle', // shown when user has been kicked
-    //     'dialog.liveStreaming', // livestreaming notifications (pending, on, off, limits)
-    //     'dialog.lockTitle', // shown when setting conference password fails
-    //     'dialog.maxUsersLimitReached', // shown when maximmum users limit has been reached
-    //     'dialog.micNotSendingData', // shown when user's mic is not sending any audio
-    //     'dialog.passwordNotSupportedTitle', // shown when setting conference password fails due to password format
-    //     'dialog.recording', // recording notifications (pending, on, off, limits)
-    //     'dialog.remoteControlTitle', // remote control notifications (allowed, denied, start, stop, error)
-    //     'dialog.reservationError',
-    //     'dialog.serviceUnavailable', // shown when server is not reachable
-    //     'dialog.sessTerminated', // shown when there is a failed conference session
-    //     'dialog.tokenAuthFailed', // show when an invalid jwt is used
-    //     'dialog.transcribing', // transcribing notifications (pending, off)
-    //     'dialOut.statusMessage', // shown when dial out status is updated.
-    //     'liveStreaming.busy', // shown when livestreaming service is busy
-    //     'liveStreaming.failedToStart', // shown when livestreaming fails to start
-    //     'liveStreaming.unavailableTitle', // shown when livestreaming service is not reachable
-    //     'lobby.joinRejectedMessage', // shown when while in a lobby, user's request to join is rejected
-    //     'lobby.notificationTitle', // shown when lobby is toggled and when join requests are allowed / denied
-    //     'localRecording.localRecording', // shown when a local recording is started
-    //     'notify.disconnected', // shown when a participant has left
-    //     'notify.grantedTo', // shown when moderator rights were granted to a participant
-    //     'notify.invitedOneMember', // shown when 1 participant has been invited
-    //     'notify.invitedThreePlusMembers', // shown when 3+ participants have been invited
-    //     'notify.invitedTwoMembers', // shown when 2 participants have been invited
-    //     'notify.kickParticipant', // shown when a participant is kicked
-    //     'notify.mutedRemotelyTitle', // shown when user is muted by a remote party
-    //     'notify.mutedTitle', // shown when user has been muted upon joining,
-    //     'notify.newDeviceAudioTitle', // prompts the user to use a newly detected audio device
-    //     'notify.newDeviceCameraTitle', // prompts the user to use a newly detected camera
-    //     'notify.passwordRemovedRemotely', // shown when a password has been removed remotely
-    //     'notify.passwordSetRemotely', // shown when a password has been set remotely
-    //     'notify.raisedHand', // shown when a partcipant used raise hand,
-    //     'notify.startSilentTitle', // shown when user joined with no audio
-    //     'prejoin.errorDialOut',
-    //     'prejoin.errorDialOutDisconnected',
-    //     'prejoin.errorDialOutFailed',
-    //     'prejoin.errorDialOutStatus',
-    //     'prejoin.errorStatusCode',
-    //     'prejoin.errorValidation',
-    //     'recording.busy', // shown when recording service is busy
-    //     'recording.failedToStart', // shown when recording fails to start
-    //     'recording.unavailableTitle', // shown when recording service is not reachable
-    //     'toolbar.noAudioSignalTitle', // shown when a broken mic is detected
-    //     'toolbar.noisyAudioInputTitle', // shown when noise is detected for the current microphone
-    //     'toolbar.talkWhileMutedPopup', // shown when user tries to speak while muted
-    //     'transcribing.failedToStart' // shown when transcribing fails to start
-    // ]
 
     // Allow all above example options to include a trailing comma and
     // prevent fear when commenting out the last value.

@@ -322,7 +322,7 @@ class WelcomePage extends AbstractWelcomePage {
                             }
                         </View>
                     </SafeAreaView>
-                    <WelcomePageLists disabled = { this.state._fieldFocused } />
+                    {/* <WelcomePageLists disabled = { this.state._fieldFocused } /> */}
                 </View>
                 <WelcomePageSideBar />
                 { this._renderWelcomePageModals() }

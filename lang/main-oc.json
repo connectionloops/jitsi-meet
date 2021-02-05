@@ -336,7 +336,7 @@
         "answer": "Uèi",
         "audioCallTitle": "Sonada entranta",
         "decline": "Regetar",
-        "productLabel": "de Jitsi Meet estant",
+        "productLabel": "de Cloops Meet estant",
         "videoCallTitle": "Sonada vidèo entranta"
     },
     "info": {
@@ -498,7 +498,7 @@
         "newDeviceAction": "Utilizar",
         "oldElectronClientDescription3": " ara !",
         "oldElectronClientDescription2": "darrièra compilacion",
-        "oldElectronClientDescription1": "Sembla qu’utilizatz una version anciana del client Jitsi Meet qu’es conegut per conténer de problèmas de seguretat. Mercés de vos assegurar de metre a jorn ",
+        "oldElectronClientDescription1": "Sembla qu’utilizatz una version anciana del client Cloops Meet qu’es conegut per conténer de problèmas de seguretat. Mercés de vos assegurar de metre a jorn ",
         "OldElectronAPPTitle": "Problèma de seguretat !"
     },
     "passwordSetRemotely": "causit per qualqu'un mai",
@@ -832,9 +832,9 @@
         "startMeeting": "Començar la reünion",
         "jitsiOnMobile": "Jitsi sus mobil –telecargatz nòstra aplicacion e començatz de conferéncias de pertot",
         "moderatedMessage": "O <a href=\"{{url}}\" rel=\"noopener noreferrer\" target=\"_blank\">reservatz una URL de conferéncia</a> a l'avança ont sètz l'unic moderator.",
-        "jitsiMeet": "Jitsi Meet",
+        "jitsiMeet": "Cloops Meet",
         "secureMeetings": "Conferéncias seguras e de nauta qualitat",
-        "headerTitle": "Jitsi Meet"
+        "headerTitle": "Cloops Meet"
     },
     "helpView": {
         "header": "Centre d’ajuda"

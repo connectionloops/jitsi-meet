@@ -46,7 +46,7 @@ class WelcomePage extends AbstractWelcomePage {
 
         this.state = {
             ...this.state,
-
+            roomPlaceholder: "Meeting code",
             generateRoomnames:
                 interfaceConfig.GENERATE_ROOMNAMES_ON_WELCOME_PAGE,
             selectedTab: 0
@@ -253,7 +253,7 @@ class WelcomePage extends AbstractWelcomePage {
                     </div>
                 </div>
 
-                <div className = 'welcome-cards-container'>
+                {/* <div className = 'welcome-cards-container'>
                     <div className = 'welcome-card-row'>
                         <div className = 'welcome-tabs welcome-card welcome-card--blue'>
                             { this._renderTabs() }
@@ -270,8 +270,8 @@ class WelcomePage extends AbstractWelcomePage {
                             className = 'welcome-page-content'
                             ref = { this._setAdditionalContentRef } />
                         : null }
-                </div>
-                { DISPLAY_WELCOME_FOOTER && this._renderFooter()}
+                </div> */}
+                {/* { DISPLAY_WELCOME_FOOTER && this._renderFooter()} */}
             </div>
 
         );

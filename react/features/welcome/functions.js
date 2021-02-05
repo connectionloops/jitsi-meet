@@ -7,7 +7,7 @@ declare var APP: Object;
 
 /**
  * Determines whether the {@code WelcomePage} is enabled by the app itself
- * (e.g. Programmatically via the Jitsi Meet SDK for Android and iOS). Not to be
+ * (e.g. Programmatically via the Cloops Meet SDK for Android and iOS). Not to be
  * confused with {@link isWelcomePageUserEnabled}.
  *
  * @param {Function|Object} stateful - The redux state or {@link getState}
@@ -17,7 +17,7 @@ declare var APP: Object;
  */
 export function isWelcomePageAppEnabled(stateful: Function | Object) {
     if (navigator.product === 'ReactNative') {
-        // We introduced the welcomePageEnabled prop on App in Jitsi Meet SDK
+        // We introduced the welcomePageEnabled prop on App in Cloops Meet SDK
         // for Android and iOS. There isn't a strong reason not to introduce it
         // on Web but there're a few considerations to be taken before I go
         // there among which:

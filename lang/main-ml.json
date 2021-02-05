@@ -331,7 +331,7 @@
         "answer": "കോളിന് മറുപടി നൽകുക",
         "audioCallTitle": "ഇൻകമിംഗ് കോൾ",
         "decline": "നിരസിക്കുക",
-        "productLabel": "Jitsi Meet-ൽ നിന്ന്",
+        "productLabel": "Cloops Meet-ൽ നിന്ന്",
         "videoCallTitle": "ഇൻകമിംഗ് വീഡിയോ കോൾ"
     },
     "info": {
@@ -492,7 +492,7 @@
         "newDeviceAudioTitle": "New audio device detected",
         "newDeviceAction": "Use",
         "OldElectronAPPTitle": "Security vulnerability!",
-        "oldElectronClientDescription1": "You appear to be using an old version of the Jitsi Meet client which has known security vulnerabilities. Please make sure you update to our ",
+        "oldElectronClientDescription1": "You appear to be using an old version of the Cloops Meet client which has known security vulnerabilities. Please make sure you update to our ",
         "oldElectronClientDescription2": "latest build",
         "oldElectronClientDescription3": " now!"
     },

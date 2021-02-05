@@ -19,11 +19,11 @@ import groovy.xml.MarkupBuilder
 apply plugin: 'com.android.application'
 
 def twaManifest = [
-    applicationId: 'org.jitsi.meet',
-    hostName: 'meet.jit.si', // The domain being opened in the TWA.
+    applicationId: 'in.cloops.meet',
+    hostName: 'meet.cloops.in', // The domain being opened in the TWA.
     launchUrl: '/', // The start path for the TWA. Must be relative to the domain.
-    name: 'Jitsi Meet', // The application name.
-    launcherName: 'Jitsi Meet', // The name shown on the Android Launcher.
+    name: 'Cloops Meet', // The application name.
+    launcherName: 'Cloops Meet', // The name shown on the Android Launcher.
     themeColor: '#17A0DB', // The color used for the status bar.
     navigationColor: '#000000', // The color used for the navigation bar.
     navigationColorDark: '#000000', // The color used for the dark navbar.
@@ -49,7 +49,7 @@ def twaManifest = [
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "org.jitsi.meet"
+        applicationId "in.cloops.meet"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 2000000000
@@ -69,7 +69,7 @@ android {
             // The URL the Web Manifest for the Progressive Web App that the TWA points to. This
             // is used by Chrome OS to open the Web version of the PWA instead of the TWA, as it
             // will probably give a better user experience for non-mobile devices.
-            resValue "string", "webManifestUrl", 'https://meet.jit.si/manifest.json'
+            resValue "string", "webManifestUrl", 'https://meet.cloops.in/manifest.json'
         
 
         // The hostname is used when building the intent-filter, so the TWA is able to
