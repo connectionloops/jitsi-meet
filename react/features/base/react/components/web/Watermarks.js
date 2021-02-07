@@ -164,7 +164,7 @@ class Watermarks extends Component<Props, State> {
 
         if (_showJitsiWatermark) {
             const style = {
-                backgroundImage: `url(${_logoUrl})`,
+                backgroundImage: `url('images/watermark.png')`,
                 maxWidth: 140,
                 maxHeight: 70
             };
@@ -200,9 +200,9 @@ class Watermarks extends Component<Props, State> {
             return (
                 <a
                     className = 'poweredby'
-                    href = 'http://jitsi.org'
+                    href = 'http://connectionloops.com'
                     target = '_new'>
-                    <span>{ t('poweredby') } jitsi.org</span>
+                    <span>{ t('poweredby') } connectionloops.com</span>
                 </a>
             );
         }

@@ -132,7 +132,7 @@ export function forEachConference(
             // $FlowFixMe
             const url: URL = v[JITSI_CONFERENCE_URL_KEY];
 
-            // XXX The Web version of Cloops Meet does not utilize
+            // XXX The Web version of TWA Meet does not utilize
             // JITSI_CONFERENCE_URL_KEY at the time of this writing. An
             // alternative is necessary then to recognize JitsiConference
             // instances and myUserId is as good as any other property.

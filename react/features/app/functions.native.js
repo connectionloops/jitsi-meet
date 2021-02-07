@@ -29,7 +29,7 @@ export function getName() {
 }
 
 /**
- * Returns the path to the Cloops Meet SDK bundle on iOS. On Android it will be
+ * Returns the path to the TWA Meet SDK bundle on iOS. On Android it will be
  * undefined.
  *
  * @returns {string|undefined}

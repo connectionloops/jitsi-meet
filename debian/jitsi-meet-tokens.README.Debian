@@ -1,7 +1,7 @@
-Token authentication plugin for Cloops Meet
+Token authentication plugin for TWA Meet
 ----------------------------
 
-Cloops Meet is a WebRTC video conferencing application. This package contains
-Prosody plugin which enables token authentication in Cloops Meet installation.
+TWA Meet is a WebRTC video conferencing application. This package contains
+Prosody plugin which enables token authentication in TWA Meet installation.
 
  -- Pawel Domas <pawel.domas@jitsi.org>  Mon, 2 Nov 2015 14:45:00 -0600

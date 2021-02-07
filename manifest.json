@@ -7,8 +7,8 @@
       "platform": "chromeos_play"
     }
   ],
-  "short_name": "Cloops Meet",
-  "name": "Cloops Meet",
+  "short_name": "TWA Meet",
+  "name": "TWA Meet",
   "icons": [
     {
       "src": "static/pwa/icons/icon192.png",

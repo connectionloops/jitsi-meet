@@ -227,7 +227,7 @@ function initCommands() {
          * @param { string } arg.rtmpStreamKey - The RTMP stream key.
          * @param { string } arg.rtmpBroadcastID - The RTMP braodcast ID.
          * @param { boolean } arg.shouldShare - Whether the recording should be shared with the participants or not.
-         * Only applies to certain Cloops Meet deploys.
+         * Only applies to certain TWA Meet deploys.
          * @param { string } arg.youtubeStreamKey - The youtube stream key.
          * @param { string } arg.youtubeBroadcastID - The youtube broacast ID.
          * @returns {void}
@@ -485,15 +485,15 @@ function toggleScreenSharing(enable) {
 
 /**
  * Implements API class that communicates with external API class and provides
- * interface to access Cloops Meet features by external applications that embed
- * Cloops Meet.
+ * interface to access TWA Meet features by external applications that embed
+ * TWA Meet.
  */
 class API {
     _enabled: boolean;
 
     /**
      * Initializes the API. Setups message event listeners that will receive
-     * information from external applications that embed Cloops Meet. It also
+     * information from external applications that embed TWA Meet. It also
      * sends a message to the external application that API is initialized.
      *
      * @param {Object} options - Optional parameters.

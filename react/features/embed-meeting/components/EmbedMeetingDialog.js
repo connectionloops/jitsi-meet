@@ -22,13 +22,13 @@ type Props = {
 };
 
 /**
- * Allow users to embed a Cloops Meeting in an iframe.
+ * Allow users to embed a TWA Meeting in an iframe.
  *
  * @returns {React$Element<any>}
  */
 function EmbedMeeting({ t, url }: Props) {
     /**
-     * Get the embed code for a Cloops Meeting.
+     * Get the embed code for a TWA Meeting.
      *
      * @returns {string} The iframe embed code.
      */

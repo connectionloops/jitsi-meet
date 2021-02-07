@@ -1,7 +1,7 @@
-Cloops Meet for Debian
+TWA Meet for Debian
 ----------------------------
 
-This is a WebRTC frontend of the video conferencing tool Cloops Meet. It depends on the
+This is a WebRTC frontend of the video conferencing tool TWA Meet. It depends on the
 jitsi-videobridge package, which is a SFU (Selective Forwarding Unit) and both packages
 are designed to work together.
 

@@ -25,7 +25,7 @@ export function updateConfig(config: Object) {
 }
 
 /**
- * Signals that the configuration (commonly known in Cloops Meet as config.js)
+ * Signals that the configuration (commonly known in TWA Meet as config.js)
  * for a specific locationURL will be loaded now.
  *
  * @param {URL} locationURL - The URL of the location which necessitated the
@@ -46,7 +46,7 @@ export function configWillLoad(locationURL: URL, room: string) {
 }
 
 /**
- * Signals that a configuration (commonly known in Cloops Meet as config.js)
+ * Signals that a configuration (commonly known in TWA Meet as config.js)
  * could not be loaded due to a specific error.
  *
  * @param {Error} error - The {@code Error} which prevented the successful
@@ -109,11 +109,11 @@ export function setConfig(config: Object = {}) {
 }
 
 /**
- * Stores a specific Cloops Meet config.js object into {@code localStorage}.
+ * Stores a specific TWA Meet config.js object into {@code localStorage}.
  *
  * @param {string} baseURL - The base URL from which the config.js was
  * downloaded.
- * @param {Object} config - The Cloops Meet config.js to store.
+ * @param {Object} config - The TWA Meet config.js to store.
  * @returns {Function}
  */
 export function storeConfig(baseURL: string, config: Object) {

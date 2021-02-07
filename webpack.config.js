@@ -5,7 +5,7 @@ const process = require('process');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 /**
- * The URL of the Cloops Meet deployment to be proxy to in the context of
+ * The URL of the TWA Meet deployment to be proxy to in the context of
  * development with webpack-dev-server.
  */
 const devServerProxyTarget

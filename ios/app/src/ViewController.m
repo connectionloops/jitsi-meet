@@ -69,7 +69,7 @@
       NSString *conference = [url.pathComponents lastObject];
 
       userActivity.title = [NSString stringWithFormat:@"Join %@", conference];
-      userActivity.suggestedInvocationPhrase = @"Join my Cloops Meeting";
+      userActivity.suggestedInvocationPhrase = @"Join my TWA Meeting";
       userActivity.userInfo = @{@"url": urlStr};
       [userActivity setEligibleForSearch:YES];
       [userActivity setEligibleForPrediction:YES];

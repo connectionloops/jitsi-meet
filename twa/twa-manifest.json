@@ -1,8 +1,8 @@
 {
   "packageId": "in.cloops.meet",
   "host": "meet.cloops.in",
-  "name": "Cloops Meet",
-  "launcherName": "Cloops Meet",
+  "name": "TWA Meet",
+  "launcherName": "TWA Meet",
   "display": "standalone",
   "themeColor": "#17A0DB",
   "navigationColor": "#000000",

@@ -28,7 +28,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Base {@link Fragment} for applications integrating Cloops Meet at a higher level. It
+ * Base {@link Fragment} for applications integrating TWA Meet at a higher level. It
  * contains all the required wiring between the {@code JitsiMeetView} and
  * the Fragment lifecycle methods already implemented.
  *

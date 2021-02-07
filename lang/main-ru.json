@@ -353,7 +353,7 @@
         "answer": "Ответ",
         "audioCallTitle": "Входящий звонок",
         "decline": "Отклонить",
-        "productLabel": "из Cloops Meet",
+        "productLabel": "из TWA Meet",
         "videoCallTitle": "Входящий видеозвонок"
     },
     "info": {
@@ -541,7 +541,7 @@
         "newDeviceAction": "Использовать",
         "newDeviceAudioTitle": "Обнаружено новое аудиоустройство",
         "newDeviceCameraTitle": "Обнаружена новая камера",
-        "oldElectronClientDescription1": "Похоже, вы используете старую версию клиента Cloops Meet, которая имеет известные уязвимости в системе безопасности. Убедитесь, что вы обновили до нашей ",
+        "oldElectronClientDescription1": "Похоже, вы используете старую версию клиента TWA Meet, которая имеет известные уязвимости в системе безопасности. Убедитесь, что вы обновили до нашей ",
         "oldElectronClientDescription2": "последней версии",
         "oldElectronClientDescription3": " сейчас!",
         "passwordRemovedRemotely": "$t(lockRoomPasswordUppercase) удален другим участником.",

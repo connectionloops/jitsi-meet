@@ -312,7 +312,7 @@
         "answer": "Odgovori",
         "audioCallTitle": "Dohodni klic",
         "decline": "Zavrni",
-        "productLabel": "iz Cloops Meet",
+        "productLabel": "iz TWA Meet",
         "videoCallTitle": "Dohodni video klic"
     },
     "info": {
@@ -466,7 +466,7 @@
         "newDeviceAction": "Uporabi",
         "newDeviceAudioTitle": "Zaznana je bila nova zvočna naprava",
         "newDeviceCameraTitle": "Zaznana je bila nova kamera",
-        "oldElectronClientDescription1": "You appear to be using an old version of the Cloops Meet client which has known security vulnerabilities. Please make sure you update to our ",
+        "oldElectronClientDescription1": "You appear to be using an old version of the TWA Meet client which has known security vulnerabilities. Please make sure you update to our ",
         "oldElectronClientDescription2": "latest build",
         "oldElectronClientDescription3": " now!",
         "passwordRemovedRemotely": "$t(lockRoomPasswordUppercase) je odstranil drug udeleženec srečanja",

@@ -329,7 +329,7 @@
         "answer": "Beantwoorden",
         "audioCallTitle": "Inkomende oproep",
         "decline": "Negeren",
-        "productLabel": "vanuit Cloops Meet",
+        "productLabel": "vanuit TWA Meet",
         "videoCallTitle": "Inkomende video-oproep"
     },
     "info": {
@@ -490,7 +490,7 @@
         "newDeviceAudioTitle": "Nieuw audioapparaat gedetecteerd",
         "newDeviceAction": "Gebruik",
         "OldElectronAPPTitle": "Beveiligingskwetsbaarheid!",
-        "oldElectronClientDescription1": "Het lijkt erop dat u een oude versie van Cloops Meet gebruikt, waarvan beveiligingskwetsbaarheden bekend zijn. Zorg ervoor dat u nu bijwerkt naar de ",
+        "oldElectronClientDescription1": "Het lijkt erop dat u een oude versie van TWA Meet gebruikt, waarvan beveiligingskwetsbaarheden bekend zijn. Zorg ervoor dat u nu bijwerkt naar de ",
         "oldElectronClientDescription2": "nieuwste versie",
         "oldElectronClientDescription3": "!"
     },

@@ -163,7 +163,7 @@ function _parseCalendarEntry(event, knownDomains) {
 }
 
 /**
- * Retrieves a Cloops Meet URL from an event if present.
+ * Retrieves a TWA Meet URL from an event if present.
  *
  * @param {Object} event - The event to parse.
  * @param {Array<string>} knownDomains - The known domain names.

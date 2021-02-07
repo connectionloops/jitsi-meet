@@ -119,7 +119,7 @@ case "$1" in
             fi
         fi
 
-        # Cloops Meet
+        # TWA Meet
         JITSI_MEET_CONFIG="/etc/jitsi/meet/$JVB_HOSTNAME-config.js"
         if [ ! -f $JITSI_MEET_CONFIG ] ; then
             cp /usr/share/jitsi-meet-web-config/config.js $JITSI_MEET_CONFIG

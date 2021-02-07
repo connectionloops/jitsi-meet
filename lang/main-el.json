@@ -324,7 +324,7 @@
         "answer": "Απάντηση",
         "audioCallTitle": "Εισερχόμενη κλήση",
         "decline": "Απόρριψη",
-        "productLabel": "από το Cloops Meet",
+        "productLabel": "από το TWA Meet",
         "videoCallTitle": "Εισερχόμενη κλήση βίντεο"
     },
     "info": {
@@ -485,7 +485,7 @@
         "newDeviceAudioTitle": "Εντοπίστηκε νέα συσκευή ήχου",
         "newDeviceAction": "Χρήση",
         "OldElectronAPPTitle": "Θέμα ευπάθειας ασφαλείας!",
-        "oldElectronClientDescription1": "Φαίνεται ότι χρησιμοποιείτε μια παλιά έκδοση του πελάτη Cloops Meet που έχει γνωστά θέματα ευπάθειας ασφαλείας. Παρακαλώ βεβαιωθείτε ότι έχετε την ενημερωμένη έκδοση για ",
+        "oldElectronClientDescription1": "Φαίνεται ότι χρησιμοποιείτε μια παλιά έκδοση του πελάτη TWA Meet που έχει γνωστά θέματα ευπάθειας ασφαλείας. Παρακαλώ βεβαιωθείτε ότι έχετε την ενημερωμένη έκδοση για ",
         "oldElectronClientDescription2": "πρόσφατη έκδοση μας",
         "oldElectronClientDescription3": " τώρα!"
     },

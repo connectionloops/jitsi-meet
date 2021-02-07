@@ -183,7 +183,7 @@ class WelcomePage extends AbstractWelcomePage {
                     ? 'with-content' : 'without-content'}` }
                 id = 'welcome_page'>
                 <div className = 'welcome-watermark'>
-                    <Watermarks defaultJitsiLogoURL = { DEFAULT_WELCOME_PAGE_LOGO_URL } />
+                    <Watermarks _logoLink={undefined} defaultJitsiLogoURL = { DEFAULT_WELCOME_PAGE_LOGO_URL } />
                 </div>
 
                 <div className = 'header'>

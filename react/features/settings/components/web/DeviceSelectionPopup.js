@@ -76,7 +76,7 @@ export default class DeviceSelectionPopup {
     }
 
     /**
-     * Sends event to Cloops Meet to close the popup dialog.
+     * Sends event to TWA Meet to close the popup dialog.
      *
      * @returns {void}
      */

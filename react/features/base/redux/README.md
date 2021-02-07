@@ -1,6 +1,6 @@
-Cloops Meet - redux state persistence
+TWA Meet - redux state persistence
 ====================================
-Cloops Meet has a persistence layer that persists specific subtrees of the redux
+TWA Meet has a persistence layer that persists specific subtrees of the redux
 store/state into window.localStorage (on Web) or AsyncStorage (on mobile).
 
 Usage
@@ -21,7 +21,7 @@ in the `reducer.js` of the `base/settings` feature.
 
 If the second parameter is omitted, the entire feature state is persisted.
 
-When it's done, Cloops Meet will automatically persist these subtrees and
+When it's done, TWA Meet will automatically persist these subtrees and
 rehydrate them on startup.
 
 Throttling

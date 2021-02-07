@@ -329,7 +329,7 @@
 			dependencies = (
 			);
 			name = JitsiMeetSDK;
-			productName = "Cloops Meet SDK";
+			productName = "TWA Meet SDK";
 			productReference = 0BD906E51EC0C00300C8C18E /* JitsiMeetSDK.framework */;
 			productType = "com.apple.product-type.framework";
 		};

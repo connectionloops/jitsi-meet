@@ -1,16 +1,16 @@
-Cloops Meet Translation
+TWA Meet Translation
 ==========================
-Cloops Meet uses [i18next](http://i18next.com) library for translation.
+TWA Meet uses [i18next](http://i18next.com) library for translation.
 i18next uses separate json files for each language.
 
 
-Translating Cloops Meet
+Translating TWA Meet
 ======================
-The translation of Cloops Meet is handled editing manually the language files.
+The translation of TWA Meet is handled editing manually the language files.
 
 Development
 ===========
-If you want to add new functionality for Cloops Meet and you have texts that need to be translated you must add key and value in main.json file in English for each translatable text.
+If you want to add new functionality for TWA Meet and you have texts that need to be translated you must add key and value in main.json file in English for each translatable text.
 Than you can use the key to get the translated text for the current language.
 
 You can add translatable text in the HTML:

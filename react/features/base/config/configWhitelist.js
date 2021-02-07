@@ -27,7 +27,7 @@ export default [
      * provided in the form of a JWT callee. As the value is associated with a
      * conference/meeting, the value makes sense not as a deployment-wide
      * configuration, only as a runtime configuration override/overwrite
-     * provided by, for example, Cloops Meet SDK for iOS.
+     * provided by, for example, TWA Meet SDK for iOS.
      *
      * @type string
      */
@@ -42,7 +42,7 @@ export default [
      * not desirable as the handle for CallKit purposes. As the value is
      * associated with a conference/meeting, the value makes sense not as a
      * deployment-wide configuration, only as a runtime configuration
-     * override/overwrite provided by, for example, Cloops Meet SDK for iOS.
+     * override/overwrite provided by, for example, TWA Meet SDK for iOS.
      *
      * @type string
      */
@@ -54,13 +54,13 @@ export default [
     /**
      * The UUID of the CallKit call representing the conference/meeting
      * associated with this config.js. The property is meant for use cases in
-     * which Cloops Meet is to work with a CallKit call created outside of Jitsi
-     * Meet and to be adopted by Cloops Meet such as, for example, an incoming
-     * and/or outgoing CallKit call created by Cloops Meet SDK for iOS
-     * clients/consumers prior to giving control to Cloops Meet. As the value is
+     * which TWA Meet is to work with a CallKit call created outside of Jitsi
+     * Meet and to be adopted by TWA Meet such as, for example, an incoming
+     * and/or outgoing CallKit call created by TWA Meet SDK for iOS
+     * clients/consumers prior to giving control to TWA Meet. As the value is
      * associated with a conference/meeting, the value makes sense not as a
      * deployment-wide configuration, only as a runtime configuration
-     * override/overwrite provided by, for example, Cloops Meet SDK for iOS.
+     * override/overwrite provided by, for example, TWA Meet SDK for iOS.
      *
      * @type string
      */

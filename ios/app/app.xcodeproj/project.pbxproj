@@ -312,7 +312,7 @@
 				0BEA5C401F7B8F73000D0AB4 /* PBXTargetDependency */,
 			);
 			name = JitsiMeet;
-			productName = "Cloops Meet";
+			productName = "TWA Meet";
 			productReference = 13B07F961A680F5B00A75B9A /* jitsi-meet.app */;
 			productType = "com.apple.product-type.application";
 		};
