@@ -150,6 +150,7 @@
     "lint": "eslint . && flow",
     "postinstall": "jetify",
     "validate": "npm ls",
+    "pkg": "make source-package",
     "build": "npm install lib-jitsi-meet --force && make",
     "dev": "npm install lib-jitsi-meet --force && make dev"
   },
