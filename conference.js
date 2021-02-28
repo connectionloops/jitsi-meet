@@ -115,7 +115,7 @@ import {
     submitFeedback
 } from './react/features/feedback';
 import { showNotification } from './react/features/notifications';
-import { mediaPermissionPromptVisibilityChanged } from './react/features/overlay';
+import { mediaPermissionPromptVisibilityChanged, toggleSlowGUMOverlay } from './react/features/overlay';
 import { suspendDetected } from './react/features/power-monitor';
 import {
     initPrejoin,
@@ -502,7 +502,17 @@ export default {
             );
         }
 
+        JitsiMeetJS.mediaDevices.addEventListener(
+            JitsiMediaDevicesEvents.SLOW_GET_USER_MEDIA,
+            () => APP.store.dispatch(toggleSlowGUMOverlay(true))
+        );
+
         let tryCreateLocalTracks;
+
+        // On Electron there is no permission prompt for granting permissions. That's why we don't need to
+        // spend much time displaying the overlay screen. If GUM is not resolved withing 15 seconds it will
+        // probably never resolve.
+        const timeout = browser.isElectron() ? 15000 : 60000;
 
         // FIXME is there any simpler way to rewrite this spaghetti below ?
         if (options.startScreenSharing) {
@@ -512,7 +522,12 @@ export default {
                         return [ desktopStream ];
                     }
 
-                    return createLocalTracksF({ devices: [ 'audio' ] }, true)
+                    return createLocalTracksF({
+                        devices: [ 'audio' ],
+                        timeout,
+                        firePermissionPromptIsShownEvent: true,
+                        fireSlowPromiseEvent: true
+                    })
                         .then(([ audioStream ]) =>
                             [ desktopStream, audioStream ])
                         .catch(error => {
@@ -526,7 +541,12 @@ export default {
                     errors.screenSharingError = error;
 
                     return requestedAudio
-                        ? createLocalTracksF({ devices: [ 'audio' ] }, true)
+                        ? createLocalTracksF({
+                            devices: [ 'audio' ],
+                            timeout,
+                            firePermissionPromptIsShownEvent: true,
+                            fireSlowPromiseEvent: true
+                        })
                         : [];
                 })
                 .catch(error => {
@@ -538,15 +558,37 @@ export default {
             // Resolve with no tracks
             tryCreateLocalTracks = Promise.resolve([]);
         } else {
-            tryCreateLocalTracks = createLocalTracksF({ devices: initialDevices }, true)
+            tryCreateLocalTracks = createLocalTracksF({
+                devices: initialDevices,
+                timeout,
+                firePermissionPromptIsShownEvent: true,
+                fireSlowPromiseEvent: true
+            })
                 .catch(err => {
                     if (requestedAudio && requestedVideo) {
 
                         // Try audio only...
                         errors.audioAndVideoError = err;
 
+                        if (err.name === JitsiTrackErrors.TIMEOUT && !browser.isElectron()) {
+                            // In this case we expect that the permission prompt is still visible. There is no point of
+                            // executing GUM with different source. Also at the time of writting the following
+                            // inconsistency have been noticed in some browsers - if the permissions prompt is visible
+                            // and another GUM is executed the prompt does not change its content but if the user
+                            // clicks allow the user action isassociated with the latest GUM call.
+                            errors.audioOnlyError = err;
+                            errors.videoOnlyError = err;
+
+                            return [];
+                        }
+
                         return (
-                            createLocalTracksF({ devices: [ 'audio' ] }, true));
+                            createLocalTracksF({
+                                devices: [ 'audio' ],
+                                timeout,
+                                firePermissionPromptIsShownEvent: true,
+                                fireSlowPromiseEvent: true
+                            }));
                     } else if (requestedAudio && !requestedVideo) {
                         errors.audioOnlyError = err;
 
@@ -567,7 +609,11 @@ export default {
 
                     // Try video only...
                     return requestedVideo
-                        ? createLocalTracksF({ devices: [ 'video' ] }, true)
+                        ? createLocalTracksF({
+                            devices: [ 'video' ],
+                            firePermissionPromptIsShownEvent: true,
+                            fireSlowPromiseEvent: true
+                        })
                         : [];
                 })
                 .catch(err => {
@@ -587,6 +633,7 @@ export default {
         // the user inputs their credentials, but the dialog would be
         // overshadowed by the overlay.
         tryCreateLocalTracks.then(tracks => {
+            APP.store.dispatch(toggleSlowGUMOverlay(false));
             APP.store.dispatch(mediaPermissionPromptVisibilityChanged(false));
 
             return tracks;
@@ -850,7 +897,7 @@ export default {
                 showUI && APP.store.dispatch(notifyMicError(error));
             };
 
-            createLocalTracksF({ devices: [ 'audio' ] }, false)
+            createLocalTracksF({ devices: [ 'audio' ] })
                 .then(([ audioTrack ]) => audioTrack)
                 .catch(error => {
                     maybeShowErrorDialog(error);
@@ -964,7 +1011,7 @@ export default {
             //
             // FIXME when local track creation is moved to react/redux
             // it should take care of the use case described above
-            createLocalTracksF({ devices: [ 'video' ] }, false)
+            createLocalTracksF({ devices: [ 'video' ] })
                 .then(([ videoTrack ]) => videoTrack)
                 .catch(error => {
                     // FIXME should send some feedback to the API on error ?
@@ -1961,7 +2008,10 @@ export default {
 
         room.on(JitsiConferenceEvents.TRACK_MUTE_CHANGED, (track, participantThatMutedUs) => {
             if (participantThatMutedUs) {
-                APP.store.dispatch(participantMutedUs(participantThatMutedUs));
+                APP.store.dispatch(participantMutedUs(participantThatMutedUs, track));
+                if (this.isSharingScreen && track.isVideoTrack()) {
+                    this._turnScreenSharingOff(false);
+                }
             }
         });
 

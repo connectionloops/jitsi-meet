@@ -36,6 +36,7 @@ import { OverflowMenuItem } from '../../../base/toolbox/components';
 import { getLocalVideoTrack, toggleScreensharing } from '../../../base/tracks';
 import { isVpaasMeeting } from '../../../billing-counter/functions';
 import { VideoBlurButton } from '../../../blur';
+import { checkBlurSupport } from '../../../blur/functions';
 import { CHAT_SIZE, ChatCounter, toggleChat } from '../../../chat';
 import { EmbedMeetingDialog } from '../../../embed-meeting';
 import { SharedDocumentButton } from '../../../etherpad';
@@ -81,6 +82,7 @@ import DownloadButton from '../DownloadButton';
 import HangupButton from '../HangupButton';
 import HelpButton from '../HelpButton';
 import MuteEveryoneButton from '../MuteEveryoneButton';
+import MuteEveryonesVideoButton from '../MuteEveryonesVideoButton';
 
 import AudioSettingsButton from './AudioSettingsButton';
 import OverflowMenuButton from './OverflowMenuButton';
@@ -1069,7 +1071,7 @@ class Toolbox extends Component<Props, State> {
                 && <VideoBlurButton
                     key = 'videobackgroundblur'
                     showLabel = { true }
-                    visible = { !_screensharing } />,
+                    visible = { !_screensharing && checkBlurSupport() } />,
             this._shouldShowButton('settings')
                 && <SettingsButton
                     key = 'settings'
@@ -1077,6 +1079,10 @@ class Toolbox extends Component<Props, State> {
             this._shouldShowButton('mute-everyone')
                 && <MuteEveryoneButton
                     key = 'mute-everyone'
+                    showLabel = { true } />,
+            this._shouldShowButton('mute-video-everyone')
+                && <MuteEveryonesVideoButton
+                    key = 'mute-video-everyone'
                     showLabel = { true } />,
             this._shouldShowButton('stats')
                 && <OverflowMenuItem

@@ -5,7 +5,7 @@ import React from 'react';
 import { translate } from '../../../base/i18n';
 import { Icon, IconClose } from '../../../base/icons';
 import { connect } from '../../../base/redux';
-import { toggleChat } from '../../../chat';
+import { toggleChat } from '../../actions.web';
 
 type Props = {
 

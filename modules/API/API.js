@@ -14,8 +14,10 @@ import {
 } from '../../react/features/base/conference';
 import { parseJWTFromURLParams } from '../../react/features/base/jwt';
 import JitsiMeetJS, { JitsiRecordingConstants } from '../../react/features/base/lib-jitsi-meet';
-import { pinParticipant, getParticipantById } from '../../react/features/base/participants';
+import { MEDIA_TYPE } from '../../react/features/base/media';
+import { pinParticipant, getParticipantById, kickParticipant } from '../../react/features/base/participants';
 import { setPrivateMessageRecipient } from '../../react/features/chat/actions';
+import { openChat } from '../../react/features/chat/actions.web';
 import {
     processExternalDeviceRequest
 } from '../../react/features/device-selection/functions';
@@ -78,7 +80,9 @@ function initCommands() {
             sendAnalytics(createApiEvent('display.name.changed'));
             APP.conference.changeLocalDisplayName(displayName);
         },
-        'mute-everyone': () => {
+        'mute-everyone': mediaType => {
+            const muteMediaType = mediaType ? mediaType : MEDIA_TYPE.AUDIO;
+
             sendAnalytics(createApiEvent('muted-everyone'));
             const participants = APP.store.getState()['features/base/participants'];
             const localIds = participants
@@ -86,7 +90,7 @@ function initCommands() {
                 .filter(participant => participant.role === 'moderator')
                 .map(participant => participant.id);
 
-            APP.store.dispatch(muteAllParticipants(localIds));
+            APP.store.dispatch(muteAllParticipants(localIds, muteMediaType));
         },
         'toggle-lobby': isLobbyEnabled => {
             APP.store.dispatch(toggleLobbyMode(isLobbyEnabled));
@@ -342,13 +346,16 @@ function initCommands() {
                 if (!isChatOpen) {
                     APP.UI.toggleChat();
                 }
-                APP.store.dispatch(setPrivateMessageRecipient(participant));
+                APP.store.dispatch(openChat(participant));
             } else {
                 logger.error('No participant found for the given participantId');
             }
         },
         'cancel-private-chat': () => {
             APP.store.dispatch(setPrivateMessageRecipient());
+        },
+        'kick-participant': participantId => {
+            APP.store.dispatch(kickParticipant(participantId));
         }
     };
     transport.on('event', ({ data, name }) => {
@@ -438,6 +445,23 @@ function initCommands() {
 
             callback({
                 sharingParticipantIds
+            });
+            break;
+        }
+        case 'get-livestream-url': {
+            const state = APP.store.getState();
+            const conference = getCurrentConference(state);
+            let livestreamUrl;
+
+            if (conference) {
+                const activeSession = getActiveSession(state, JitsiRecordingConstants.mode.STREAM);
+
+                livestreamUrl = activeSession?.liveStreamViewURL;
+            } else {
+                logger.error('Conference is not defined');
+            }
+            callback({
+                livestreamUrl
             });
             break;
         }

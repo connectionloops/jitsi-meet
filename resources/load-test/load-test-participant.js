@@ -13,14 +13,15 @@ const {
     localVideo = config.startWithVideoMuted !== true,
     remoteVideo = isHuman,
     remoteAudio = isHuman,
-    autoPlayVideo = config.testing.noAutoPlayVideo !== true
+    autoPlayVideo = config.testing.noAutoPlayVideo !== true,
+
+    // Whether to create local audio even if muted
+    autoCreateLocalAudio = config.testing.noAutoLocalAudio !== true
 } = params;
 
 const { room: roomName } = parseURIString(window.location.toString());
 
 let connection = null;
-
-let isJoined = false;
 
 let room = null;
 
@@ -28,6 +29,8 @@ let numParticipants = 1;
 
 let localTracks = [];
 const remoteTracks = {};
+
+let maxFrameHeight = 0;
 
 window.APP = {
     conference: {
@@ -67,10 +70,31 @@ window.APP = {
 };
 
 /**
+ * Simple emulation of jitsi-meet's screen layout behavior
+ */
+function updateMaxFrameHeight() {
+    let newMaxFrameHeight;
+
+    if (numParticipants <= 2) {
+        newMaxFrameHeight = 720;
+    } else if (numParticipants <= 4) {
+        newMaxFrameHeight = 360;
+    } else {
+        newMaxFrameHeight = 180;
+    }
+
+    if (room && maxFrameHeight !== newMaxFrameHeight) {
+        maxFrameHeight = newMaxFrameHeight;
+        room.setReceiverVideoConstraint(maxFrameHeight);
+    }
+}
+
+/**
  *
  */
 function setNumberOfParticipants() {
     $('#participants').text(numParticipants);
+    updateMaxFrameHeight();
 }
 
 /**
@@ -84,13 +108,15 @@ function onLocalTracks(tracks = []) {
             $('body').append(`<video ${autoPlayVideo ? 'autoplay="1" ' : ''}id='localVideo${i}' />`);
             localTracks[i].attach($(`#localVideo${i}`)[0]);
         } else {
+            if (!localAudio) {
+                localTracks[i].mute();
+            }
+
             $('body').append(
                 `<audio autoplay='1' muted='true' id='localAudio${i}' />`);
             localTracks[i].attach($(`#localAudio${i}`)[0]);
         }
-        if (isJoined) {
-            room.addTrack(localTracks[i]);
-        }
+        room.addTrack(localTracks[i]);
     }
 }
 
@@ -123,10 +149,28 @@ function onRemoteTrack(track) {
  * That function is executed when the conference is joined
  */
 function onConferenceJoined() {
-    isJoined = true;
-    for (let i = 0; i < localTracks.length; i++) {
-        room.addTrack(localTracks[i]);
-    }
+    console.log('Conference joined');
+}
+
+/**
+ * Handles start muted events, when audio and/or video are muted due to
+ * startAudioMuted or startVideoMuted policy.
+ */
+function onStartMuted() {
+    // Give it some time, as it may be currently in the process of muting
+    setTimeout(() => {
+        const localAudioTrack = room.getLocalAudioTrack();
+
+        if (localAudio && localAudioTrack && localAudioTrack.isMuted()) {
+            localAudioTrack.unmute();
+        }
+
+        const localVideoTrack = room.getLocalVideoTrack();
+
+        if (localVideo && localVideoTrack && localVideoTrack.isMuted()) {
+            localVideoTrack.unmute();
+        }
+    }, 2000);
 }
 
 /**
@@ -155,7 +199,8 @@ function onUserLeft(id) {
  * That function is called when connection is established successfully
  */
 function onConnectionSuccess() {
-    room = connection.initJitsiConference(roomName, config);
+    room = connection.initJitsiConference(roomName.toLowerCase(), config);
+    room.on(JitsiMeetJS.events.conference.STARTED_MUTED, onStartMuted);
     room.on(JitsiMeetJS.events.conference.TRACK_ADDED, onRemoteTrack);
     room.on(JitsiMeetJS.events.conference.CONFERENCE_JOINED, onConferenceJoined);
     room.on(JitsiMeetJS.events.conference.USER_JOINED, id => {
@@ -164,7 +209,31 @@ function onConnectionSuccess() {
         remoteTracks[id] = [];
     });
     room.on(JitsiMeetJS.events.conference.USER_LEFT, onUserLeft);
-    room.join();
+
+    const devices = [];
+
+    if (localVideo) {
+        devices.push('video');
+    }
+
+    if (localAudio || autoCreateLocalAudio) {
+        devices.push('audio');
+    }
+
+    if (devices.length > 0) {
+        JitsiMeetJS.createLocalTracks({ devices })
+            .then(onLocalTracks)
+            .then(() => {
+                room.join();
+            })
+            .catch(error => {
+                throw error;
+            });
+    } else {
+        room.join();
+    }
+
+    updateMaxFrameHeight();
 }
 
 /**
@@ -208,26 +277,13 @@ JitsiMeetJS.setLogLevel(JitsiMeetJS.logLevels.ERROR);
 
 JitsiMeetJS.init(config);
 
+config.serviceUrl = config.bosh = `${config.websocket || config.bosh}?room=${roomName.toLowerCase()}`;
+if (config.websocketKeepAliveUrl) {
+    config.websocketKeepAliveUrl += `?room=${roomName.toLowerCase()}`;
+}
+
 connection = new JitsiMeetJS.JitsiConnection(null, null, config);
 connection.addEventListener(JitsiMeetJS.events.connection.CONNECTION_ESTABLISHED, onConnectionSuccess);
 connection.addEventListener(JitsiMeetJS.events.connection.CONNECTION_FAILED, onConnectionFailed);
 connection.addEventListener(JitsiMeetJS.events.connection.CONNECTION_DISCONNECTED, disconnect);
 connection.connect();
-
-const devices = [];
-
-if (localVideo) {
-    devices.push('video');
-}
-if (localAudio) {
-    devices.push('audio');
-}
-if (devices.length > 0) {
-    JitsiMeetJS.createLocalTracks({ devices })
-    .then(onLocalTracks)
-    .catch(error => {
-        throw error;
-    });
-}
-
-
