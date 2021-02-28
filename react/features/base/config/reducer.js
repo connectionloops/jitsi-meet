@@ -10,7 +10,7 @@ import { _cleanupConfig } from './functions';
 /**
  * The initial state of the feature base/config when executing in a
  * non-React Native environment. The mandatory configuration to be passed to
- * JitsiMeetJS#init(). The app will download config.js from the TWA Meet
+ * JitsiMeetJS#init(). The app will download config.js from the Meet
  * deployment and take its values into account but the values bellow will be
  * enforced (because they are essential to the correct execution of the
  * application).
@@ -23,7 +23,7 @@ const INITIAL_NON_RN_STATE = {
 /**
  * The initial state of the feature base/config when executing in a React Native
  * environment. The mandatory configuration to be passed to JitsiMeetJS#init().
- * The app will download config.js from the TWA Meet deployment and take its
+ * The app will download config.js from the Meet deployment and take its
  * values into account but the values bellow will be enforced (because they are
  * essential to the correct execution of the application).
  *
@@ -96,7 +96,7 @@ ReducerRegistry.register('features/base/config', (state = _getInitialState(), ac
 /**
  * Gets the initial state of the feature base/config. The mandatory
  * configuration to be passed to JitsiMeetJS#init(). The app will download
- * config.js from the TWA Meet deployment and take its values into account but
+ * config.js from the Meet deployment and take its values into account but
  * the values bellow will be enforced (because they are essential to the correct
  * execution of the application).
  *
@@ -135,7 +135,7 @@ function _setConfig(state, { config }) {
         { error: undefined },
 
         // The config of _getInitialState() is meant to override the config
-        // downloaded from the TWA Meet deployment because the former contains
+        // downloaded from the Meet deployment because the former contains
         // values that are mandatory.
         _getInitialState()
     );

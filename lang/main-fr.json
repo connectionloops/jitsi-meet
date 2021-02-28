@@ -344,7 +344,7 @@
         "answer": "Répondre",
         "audioCallTitle": "Appel entrant",
         "decline": "Rejeter",
-        "productLabel": "via TWA Meet",
+        "productLabel": "via Meet",
         "videoCallTitle": "Appel vidéo entrant"
     },
     "info": {
@@ -507,7 +507,7 @@
         "newDeviceAudioTitle": "Nouveau périphérique audio détecté",
         "newDeviceAction": "Utiliser",
         "OldElectronAPPTitle": "Vulnérabilité de sécurité !",
-        "oldElectronClientDescription1": "Vous semblez utiliser une ancienne version du client TWA Meet qui présente des vulnérabilités de sécurité connues. Veuillez vous assurer de mettre à jour vers notre ",
+        "oldElectronClientDescription1": "Vous semblez utiliser une ancienne version du client Meet qui présente des vulnérabilités de sécurité connues. Veuillez vous assurer de mettre à jour vers notre ",
         "oldElectronClientDescription2": "dernière build",
         "oldElectronClientDescription3": " rapidement !"
     },
@@ -888,7 +888,7 @@
         "getHelp": "Obtenir de l'aide",
         "go": "Créer",
         "goSmall": "Créer",
-        "headerTitle": "TWA Meet",
+        "headerTitle": "Meet",
         "headerSubtitle": "Conférences sécurisées et de haute qualité",
         "info": "Infos",
         "join": "CRÉER / REJOINDRE",

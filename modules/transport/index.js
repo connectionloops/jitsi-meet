@@ -23,14 +23,14 @@ if (typeof API_ID === 'number') {
 }
 
 /**
- * The instance of Transport class that will be used by TWA Meet.
+ * The instance of Transport class that will be used by Meet.
  *
  * @type {Transport}
  */
 let transport;
 
 /**
- * Returns the instance of Transport class that will be used by TWA Meet.
+ * Returns the instance of Transport class that will be used by Meet.
  *
  * @returns {Transport}
  */

@@ -5,11 +5,11 @@ import { parseURLParams } from '../react/features/base/util/parseURLParams';
 
 /**
  * Implements external connect using createConnectionExternally function defined
- * in external_connect.js for TWA Meet. Parses the room name and JSON Web
+ * in external_connect.js for Meet. Parses the room name and JSON Web
  * Token (JWT) from the URL and executes createConnectionExternally.
  *
- * NOTE: If you are using lib-jitsi-meet without TWA Meet, you should use this
- * file as reference only because the implementation is TWA Meet-specific.
+ * NOTE: If you are using lib-jitsi-meet without Meet, you should use this
+ * file as reference only because the implementation is Meet-specific.
  *
  * NOTE: For optimal results this file should be included right after
  * external_connect.js.

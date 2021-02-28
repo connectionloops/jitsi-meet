@@ -336,7 +336,7 @@
         "answer": "Antworten",
         "audioCallTitle": "Eingehender Anruf",
         "decline": "OK",
-        "productLabel": "von TWA Meet",
+        "productLabel": "von Meet",
         "videoCallTitle": "Eingehender Videoanruf"
     },
     "info": {
@@ -877,7 +877,7 @@
         "getHelp": "Hilfe",
         "go": "Los",
         "goSmall": "Los",
-        "headerTitle": "TWA Meet",
+        "headerTitle": "Meet",
         "headerSubtitle": "Sichere und hochqualitative Meetings",
         "info": "Einwahlinformationen",
         "join": "ERSTELLEN / BEITRETEN",

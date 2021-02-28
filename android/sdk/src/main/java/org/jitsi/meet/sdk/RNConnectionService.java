@@ -22,7 +22,7 @@ import com.facebook.react.module.annotations.ReactModule;
 import org.jitsi.meet.sdk.log.JitsiMeetLogger;
 
 /**
- * The react-native side of TWA Meet's {@link ConnectionService}. Exposes
+ * The react-native side of Meet's {@link ConnectionService}. Exposes
  * the Java Script API.
  *
  * @author Pawel Domas
@@ -62,9 +62,9 @@ class RNConnectionService extends ReactContextBaseJavaModule {
     /**
      * Starts a new outgoing call.
      *
-     * @param callUUID - unique call identifier assigned by TWA Meet to
+     * @param callUUID - unique call identifier assigned by Meet to
      *        a conference call.
-     * @param handle - a call handle which by default is TWA Meet room's URL.
+     * @param handle - a call handle which by default is Meet room's URL.
      * @param hasVideo - whether or not user starts with the video turned on.
      * @param promise - the Promise instance passed by the React-native bridge,
      *        so that this method returns a Promise on the JS side.

@@ -91,7 +91,7 @@ function connect(id, password, roomName) {
     serviceUrl += `?room=${roomName}`;
 
     // FIXME Remove deprecated 'bosh' option assignment at some point(LJM will be accepting only 'serviceUrl' option
-    //  in future). It's included for the time being for TWA Meet and lib-jitsi-meet versions interoperability.
+    //  in future). It's included for the time being for Meet and lib-jitsi-meet versions interoperability.
     connectionConfig.serviceUrl = connectionConfig.bosh = serviceUrl;
 
     if (connectionConfig.websocketKeepAliveUrl) {

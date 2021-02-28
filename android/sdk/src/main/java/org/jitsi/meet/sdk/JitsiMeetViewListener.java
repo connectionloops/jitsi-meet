@@ -19,7 +19,7 @@ package org.jitsi.meet.sdk;
 import java.util.Map;
 
 /**
- * Interface for listening to events coming from TWA Meet.
+ * Interface for listening to events coming from Meet.
  */
 @Deprecated
 public interface JitsiMeetViewListener {

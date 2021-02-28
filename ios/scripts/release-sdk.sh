@@ -10,7 +10,7 @@ SDK_VERSION=${OVERRIDE_SDK_VERSION:-${DEFAULT_SDK_VERSION}}
 DO_GIT_TAG=${GIT_TAG:-0}
 
 
-echo "Releasing TWA Meet SDK ${SDK_VERSION}"
+echo "Releasing Meet SDK ${SDK_VERSION}"
 
 pushd ${RELEASE_REPO}
 

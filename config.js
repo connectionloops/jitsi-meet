@@ -628,7 +628,7 @@ var config = {
          logoImageUrl: 'https://example.com/logo-img.png'
      }
     */
-    // dynamicBrandingUrl: '',
+    //dynamicBrandingUrl: 'http://localhost:3000/brand',
 
     // The URL of the moderated rooms microservice, if available. If it
     // is present, a link to the service will be rendered on the welcome page,
@@ -677,7 +677,7 @@ var config = {
 
     /**
      * This property can be used to alter the generated meeting invite links (in combination with a branding domain
-     * which is retrieved internally by TWA Meet) (e.g. https://meet.jit.si/someMeeting
+     * which is retrieved internally by Meet) (e.g. https://meet.jit.si/someMeeting
      * can become https://brandedDomain/roomAlias)
      */
     // brandingRoomAlias: null,

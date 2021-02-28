@@ -1,7 +1,7 @@
-Prosody configuration for TWA Meet for Debian
+Prosody configuration for Meet for Debian
 ----------------------------
 
-TWA Meet is a WebRTC video conferencing application. This package contains 
-configuration of prosody which are needed for TWA Meet to work.
+Meet is a WebRTC video conferencing application. This package contains 
+configuration of prosody which are needed for Meet to work.
 
  -- Yasen Pramatarov <yasen@bluejimp.com>  Mon, 30 Jun 2014 23:05:18 +0100

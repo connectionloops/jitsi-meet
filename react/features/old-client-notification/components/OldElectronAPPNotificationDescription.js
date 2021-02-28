@@ -16,7 +16,7 @@ type Props = {
 };
 
 /**
- * A component that renders the description of the notification for old TWA Meet Electron clients.
+ * A component that renders the description of the notification for old Meet Electron clients.
  *
  * @extends AbstractApp
  */

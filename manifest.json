@@ -7,8 +7,8 @@
       "platform": "chromeos_play"
     }
   ],
-  "short_name": "TWA Meet",
-  "name": "TWA Meet",
+  "short_name": "Meet",
+  "name": "Meet",
   "icons": [
     {
       "src": "static/pwa/icons/icon192.png",

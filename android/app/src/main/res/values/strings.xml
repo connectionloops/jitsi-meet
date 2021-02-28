@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TWA Meet</string>
-    <string name="restriction_server_url_description">URL of TWA Meet server instance to connect to</string>
+    <string name="app_name">Meet</string>
+    <string name="restriction_server_url_description">URL of Meet server instance to connect to</string>
     <string name="restriction_server_url_title">Server URL</string>
 </resources>
