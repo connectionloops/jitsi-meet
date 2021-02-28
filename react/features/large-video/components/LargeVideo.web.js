@@ -46,6 +46,10 @@ type Props = {
  * @extends Component
  */
 class LargeVideo extends Component<Props> {
+    constructor(props) {
+        super(props);
+        this._logoUrlFromQueryParams = null;
+    }
     /**
      * Implements React's {@link Component#componentDidMount}.
      *
@@ -65,6 +69,17 @@ class LargeVideo extends Component<Props> {
         const style = this._getCustomSyles();
         const className = `videocontainer${this.props._isChatOpen ? ' shift-right' : ''}`;
 
+        try{
+            const parameters = new URLSearchParams(window.location.search)
+
+            if(parameters.get("logoUrl")){
+                this._logoUrlFromQueryParams = decodeURI(parameters.get("logoUrl")).replace(/\/$/, "");
+
+            }
+        } catch(ex) {
+
+        }
+
         return (
             <div
                 className = { className }
@@ -77,7 +92,10 @@ class LargeVideo extends Component<Props> {
                 </div>
                 <div id = 'etherpad' />
 
-                <Watermarks />
+                <Watermarks 
+                    _logoUrl={this._logoUrlFromQueryParams}
+                    defaultJitsiLogoURL = { this._logoUrlFromQueryParams }
+                />
 
                 <div id = 'dominantSpeaker'>
                     <div className = 'dynamic-shadow' />

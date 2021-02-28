@@ -81,6 +81,7 @@ class Watermarks extends Component<Props, State> {
      * @param {Object} props - The read-only properties with which the new
      * instance is to be initialized.
      */
+    
     constructor(props: Props) {
         super(props);
 
@@ -254,7 +255,7 @@ function _mapStateToProps(state, ownProps) {
         }
     } else {
         // When there is no custom branding data use defaults
-        _logoUrl = ownProps.defaultJitsiLogoURL || DEFAULT_LOGO_URL;
+        _logoUrl = ownProps._logoUrl || ownProps.defaultJitsiLogoURL || DEFAULT_LOGO_URL;
         _logoLink = JITSI_WATERMARK_LINK;
     }
 

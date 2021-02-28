@@ -84,7 +84,7 @@ var interfaceConfig = {
      * Whether or not the blurred video background for large video should be
      * displayed on browsers that can support it.
      */
-    DISABLE_VIDEO_BACKGROUND: false,
+    DISABLE_VIDEO_BACKGROUND: true,
 
     DISPLAY_WELCOME_FOOTER: true,
     DISPLAY_WELCOME_PAGE_ADDITIONAL_CARD: false,
@@ -107,7 +107,7 @@ var interfaceConfig = {
     /**
      * Hide the invite prompt in the header when alone in the meeting.
      */
-    HIDE_INVITE_MORE_HEADER: false,
+    HIDE_INVITE_MORE_HEADER: true,
 
     INITIAL_TOOLBAR_TIMEOUT: 20000,
     JITSI_WATERMARK_LINK: 'https://connectionloops.com',
@@ -208,13 +208,7 @@ var interfaceConfig = {
      * - it's impossible to control the placement of buttons
      * - 'desktop' controls the "Share your screen" button
      */
-    TOOLBAR_BUTTONS: [
-        'microphone', 'camera', 'closedcaptions', 'desktop', 'embedmeeting', 'fullscreen',
-        'fodeviceselection', 'hangup', 'profile', 'chat', 'recording',
-        'etherpad', 'sharedvideo', 'settings', 'raisehand', // 'livestreaming', 
-        'videoquality', 'filmstrip', 'invite', 'feedback', 'stats', 'shortcuts',
-        'tileview', 'videobackgroundblur', 'download', 'help', 'mute-everyone', 'mute-video-everyone', 'security'
-    ],
+    TOOLBAR_BUTTONS: ['microphone','camera','closedcaptions','desktop','fullscreen','fodeviceselection','hangup','profile','chat','etherpad','settings','raisehand', 'livestreaming', 'videoquality','filmstrip','invite','feedback','stats','shortcuts','tileview', 'download', 'mute-everyone', 'mute-video-everyone', 'security'],
 
     TOOLBAR_TIMEOUT: 4000,
 

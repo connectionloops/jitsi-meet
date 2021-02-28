@@ -74,6 +74,9 @@ class WelcomePage extends AbstractWelcomePage {
 
         this._additionalCardRef = null;
 
+        this._logoUrlFromQueryParams = null;
+
+        this._brandName = null;
         /**
          * The template to use as the additional card displayed near the main one.
          *
@@ -130,6 +133,16 @@ class WelcomePage extends AbstractWelcomePage {
         document.body.classList.add('welcome-page');
         document.title = interfaceConfig.APP_NAME;
 
+        try{
+            const parameters = new URLSearchParams(window.location.search)
+
+            if(parameters.get("logoUrl")){
+                this._logoUrlFromQueryParams = decodeURI(parameters.get("logoUrl"));
+            }
+        } catch(ex) {
+
+        }
+
         if (this.state.generateRoomnames) {
             this._updateRoomname();
         }
@@ -183,7 +196,7 @@ class WelcomePage extends AbstractWelcomePage {
                     ? 'with-content' : 'without-content'}` }
                 id = 'welcome_page'>
                 <div className = 'welcome-watermark'>
-                    <Watermarks _logoLink={undefined} defaultJitsiLogoURL = { DEFAULT_WELCOME_PAGE_LOGO_URL } />
+                    <Watermarks _logoUrl={this._logoUrlFromQueryParams} _logoLink={null} defaultJitsiLogoURL = { DEFAULT_WELCOME_PAGE_LOGO_URL } />
                 </div>
 
                 <div className = 'header'>
