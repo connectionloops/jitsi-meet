@@ -315,7 +315,13 @@ export function maybeRedirectToWelcomePage(options: Object = {}) {
                 }
                 path = 'close3.html';
             } else if (!options.feedbackSubmitted) {
-                path = 'close2.html';
+
+                const params = new URLSearchParams(window.location.search);
+                let endText = "";
+                if(params.get("endText")) {
+                    endText = params.get("endText");
+                }
+                path = `close2.html${endText!==""? "?endText="+endText : ""}`;
             }
 
             dispatch(redirectToStaticPage(`static/${path}`, hashParam));

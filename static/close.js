@@ -44,10 +44,16 @@ function onLoad() {
     // Intentionally use string concatenation as this file does not go through
     // babel but IE11 is still supported.
     // eslint-disable-next-line prefer-template
+
+    const params = new URLSearchParams(window.location.search);
+    let endText = "";
+    if(params.get("endText")) {
+        endText = decodeURI(params.get("endText"));
+    }
     const thankYouMessage = 'Thank you for using ' + interfaceConfig.APP_NAME;
 
     // Works only for close2.html because close.html doesn't have this element.
-    insertTextMsg('thanksMessage', thankYouMessage);
+    insertTextMsg('thanksMessage', endText || thankYouMessage);
 
     // If there is a setting show a special message only for the guests
     if (interfaceConfig.CLOSE_PAGE_GUEST_HINT) {
